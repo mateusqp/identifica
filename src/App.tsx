@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppRoutes from './routes/AppRoutes';
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import theme from "./styles/theme";
+import GlobalStyles from "./styles/globalStyles";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MuiThemeProvider theme={theme}>
+      <StyledThemeProvider theme={theme}>
+        <GlobalStyles />
+      <AppRoutes />
+      </StyledThemeProvider>
+    </MuiThemeProvider>
     </div>
   );
-}
+};
 
 export default App;
